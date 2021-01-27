@@ -25,4 +25,6 @@ reportWebVitals();
 
 
 
-OneSignal.initialize('bd5c4897-1d33-4e2c-bb4c-cdc68ac7add8');
+OneSignal.initialize('bd5c4897-1d33-4e2c-bb4c-cdc68ac7add8', {
+  safari_web_id?: "web.onesignal.auto.364542e4-0165-4e49-b6eb-0136f3f4eaa9";
+})
