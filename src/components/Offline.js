@@ -2,8 +2,7 @@
 const Offline = () => {
     return (
         <div>
-            <h2>Dette er undersiden.</h2>
-            <img src={kode} alt="her er noget kode"/>
+            <h2>Dette er offlinesiden.</h2>
         </div>
      );
 }
