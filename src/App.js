@@ -22,7 +22,7 @@ function App() {
     <Router>
       <Home path="/" />
       <Page path="page" />
-      <Otherpage path="otherpage"
+      <Otherpage path="otherpage" />
       <Offline path="offline" />
     </Router>
     </>
