@@ -7,10 +7,14 @@ if (typeof importScripts === 'function') {
   
       /* injection point for manifest files.  */
       workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
+
+      /* if your site is a single page app, hou can yse NavigationRoute 
+      to return a specific response for all navigation requests... */
+      workbox.routing.registerNavigationRoute('/index.html');
   
       /* custom cache rules */
        workbox.routing.registerRoute(
-        'https://goofy-volhard-8d93b9.netlify.app/page',
+        '/page',
           workbox.strategies.CacheFirst({
             cacheName: 'PRODUCTION',
           })
