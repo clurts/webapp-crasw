@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import Page from "./components/Page"
 import OneSignal from 'react-onesignal';
 import Offline from './components/Offline';
+import Otherpage from './components/Otherpage';
 
 
 OneSignal.initialize('e5b94a5a-a3b9-4f0b-b5a1-54d44283e640', {
@@ -16,10 +17,12 @@ function App() {
     <nav>
       <Link to="/">Homepage</Link>
       <Link to="/page">subpage</Link>
+      <Link to="/otherpage">otherpage</Link>
     </nav>
     <Router>
       <Home path="/" />
       <Page path="page" />
+      <Otherpage path="otherpage"
       <Offline path="offline" />
     </Router>
     </>
