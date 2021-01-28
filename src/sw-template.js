@@ -10,12 +10,11 @@ if (typeof importScripts === 'function') {
   
       /* custom cache rules */
        workbox.routing.registerRoute(
-        new workbox.routing.NavigationRoute(
-          new workbox.strategies.CacheFirst({
+        'https://goofy-volhard-8d93b9.netlify.app/page',
+          workbox.strategies.CacheFirst({
             cacheName: 'PRODUCTION',
           })
-        )
-      );
+        );
     } else {
       // console.log('Workbox could not be loaded. No Offline support');
     }
