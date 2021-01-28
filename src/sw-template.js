@@ -8,9 +8,29 @@ if (typeof importScripts === 'function') {
       /* injection point for manifest files.  */
       workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
-      /* if your site is a single page app, hou can yse NavigationRoute 
-      to return a specific response for all navigation requests... */
-      workbox.routing.registerNavigationRoute('/index.html');
+      
+
+
+      const FALLBACK_URL = '/offline';
+
+      const urlHandler = workbox.strategies.networkFirst({
+          cacheName: 'page-cache'
+      });
+
+      workbox.routing.registerRoute(
+          /\/.+\//,
+          ({event}) => {
+              return urlHandler.handle({event})
+                  .then((response) => {
+                      return response || caches.match(FALLBACK_URL);
+                  })
+                  .catch(() => caches.match(FALLBACK_URL));
+          });
+
+
+
+
+
   
       /* custom cache rules */
        workbox.routing.registerRoute(

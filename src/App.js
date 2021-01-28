@@ -3,6 +3,7 @@ import { Link, Router } from '@reach/router'
 import Home from "./components/Home"
 import Page from "./components/Page"
 import OneSignal from 'react-onesignal';
+import Offline from './components/Offline';
 
 
 OneSignal.initialize('e5b94a5a-a3b9-4f0b-b5a1-54d44283e640', {
@@ -19,6 +20,7 @@ function App() {
     <Router>
       <Home path="/" />
       <Page path="page" />
+      <Offline path="offline" />
     </Router>
     </>
   );
