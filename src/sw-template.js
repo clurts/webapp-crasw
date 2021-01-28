@@ -6,32 +6,20 @@ if (typeof importScripts === 'function') {
       workbox.core.skipWaiting();
   
       /* injection point for manifest files.  */
-      workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
+      workbox.precaching.precacheAndRoute([
+        '/',
+        '/offline'
+      ]);
 
-      
-
-
-      const FALLBACK_URL = '/offline';
-
-      const urlHandler = workbox.strategies.networkFirst({
-          cacheName: 'PRODUCTION'
-      });
-
-      const customHandler = async (args) => {
-        try {
-          const response = await urlHandler.handle(args);
-          return response || await caches.match(FALLBACK_URL);
-        } catch (error) {
-          return await caches.match(FALLBACK_URL);
-        }
-      };
-
-      workbox.routing.registerRoute(
-        '/page', 
-        customHandler
-      );
-
-
+  
+      self.addEventListener("fetch", evt => {
+        evt.respondWith(caches.match(evt.request)
+            .then(response => { 
+                return response || fetch(evt.request)
+            })
+            .catch(err => caches.match('/offline'))
+            )
+    })
 
 
 
