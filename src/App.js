@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Home path="/" />
-      <Page path="/page" />
+      <Page path="page" />
     </Router>
   );
 }
