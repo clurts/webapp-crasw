@@ -8,7 +8,7 @@ const buildSW = () => {
     globPatterns: [
       '**/*.{html,json,js,css}',
     ],
-    swDest: 'build/service-worker.js',
+    swDest: 'build/custom-service-worker.js',
 
     // Define runtime caching rules.
     runtimeCaching: [{
