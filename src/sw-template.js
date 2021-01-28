@@ -11,7 +11,7 @@ if (typeof importScripts === 'function') {
       /* custom cache rules */
        workbox.routing.registerRoute(
         new workbox.routing.NavigationRoute(
-          new workbox.strategies.NetworkFirst({
+          new workbox.strategies.CacheFirst({
             cacheName: 'PRODUCTION',
           })
         )
