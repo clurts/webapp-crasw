@@ -14,18 +14,22 @@ if (typeof importScripts === 'function') {
       const FALLBACK_URL = '/offline';
 
       const urlHandler = workbox.strategies.networkFirst({
-          cacheName: 'page-cache'
+          cacheName: 'PRODUCTION'
       });
 
+      const customHandler = async (args) => {
+        try {
+          const response = await urlHandler.handle(args);
+          return response || await caches.match(FALLBACK_URL);
+        } catch (error) {
+          return await caches.match(FALLBACK_URL);
+        }
+      };
+
       workbox.routing.registerRoute(
-          /\/.+\//,
-          ({event}) => {
-              return urlHandler.handle({event})
-                  .then((response) => {
-                      return response || caches.match(FALLBACK_URL);
-                  })
-                  .catch(() => caches.match(FALLBACK_URL));
-          });
+        '/page', 
+        customHandler
+      );
 
 
 
@@ -33,12 +37,12 @@ if (typeof importScripts === 'function') {
 
   
       /* custom cache rules */
-       workbox.routing.registerRoute(
+      /* workbox.routing.registerRoute(
         '/page',
           workbox.strategies.CacheFirst({
             cacheName: 'PRODUCTION',
           })
-        );
+        );*/
     } else {
       // console.log('Workbox could not be loaded. No Offline support');
     }
