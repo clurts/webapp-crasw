@@ -11,7 +11,7 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { StaleWhileRevalidate, CacheOnly } from 'workbox-strategies';
 
 clientsClaim();
 
@@ -73,6 +73,15 @@ self.addEventListener('message', (event) => {
 if(self.IndexedDB){
   console.log('IndexedDB is supported');
 }
+
+registerRoute(
+  ({url}) => url.origin === self.location.origin &&
+             url.pathname.startsWith('/offline/'),
+  new CacheOnly({
+    cacheName: 'offline'
+  })
+);
+
 
 setDefaultHandler(new StaleWhileRevalidate());
 
