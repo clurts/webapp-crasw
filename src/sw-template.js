@@ -12,11 +12,13 @@ if (typeof importScripts === 'function') {
   
       /* custom cache rules */
        workbox.routing.registerRoute(
-        '/page',
-          workbox.strategies.CacheFirst({
+        new workbox.routing.NavitationRoute(
+        new workbox.strategies.CacheFirst({
             cacheName: 'PRODUCTION',
           })
+        )
         );
+        
     } else {
       // console.log('Workbox could not be loaded. No Offline support');
     }
