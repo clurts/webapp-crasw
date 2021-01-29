@@ -13,6 +13,7 @@ const Demo = ({
         <div>
             <p>Latitude: {coords.latitude}</p>
             <p>Longtitude: {coords.longitude}</p>
+            <p>Altitude: {coords.altitude}</p>
         </div>
     ) : (
         <div>Getting the location data&hellip; </div>
