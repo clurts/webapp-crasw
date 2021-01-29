@@ -10,7 +10,7 @@
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
-import { registerRoute } from 'workbox-routing';
+import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
 clientsClaim();
@@ -73,3 +73,21 @@ self.addEventListener('message', (event) => {
 if(self.IndexedDB){
   console.log('IndexedDB is supported');
 }
+
+setDefaultHandler(new StaleWhileRevalidate());
+
+setCatchHandler(({event}) => {
+  switch (event.request.destination) {
+    case 'document':
+      return caches.match('offline.html');
+    break;
+
+    case 'image':
+      return caches.match(offline_img.jpg);
+    break;
+
+    default:
+      // If we don't have a fallback, just return an error response.
+      return Response.error();
+  }
+})
