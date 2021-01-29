@@ -6,21 +6,20 @@ if (typeof importScripts === 'function') {
       workbox.core.skipWaiting();
   
       /* injection point for manifest files.  */
-      workbox.precaching.precacheAndRoute([
-        '/',
-        '/offline'
-      ]);
+      workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
-  
-      self.addEventListener("fetch", evt => {
-        evt.respondWith(caches.match(evt.request)
-            .then(response => { 
-                return response || fetch(evt.request)
-            })
-            .catch(err => caches.match('/offline'))
-            )
-    })
-
+      workbox.routing.registerRoute(
+        // Return false to exempt requests from being fulfilled by index.html.
+        ({ request, url }) => {
+          // If this isn't a navigation, skip.
+          if (request.mode !== 'navigate') {
+            return false;
+          } 
+      
+          return true;
+        },
+        workbox.precaching.createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
+      );
 
 
   
