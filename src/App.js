@@ -5,6 +5,7 @@ import Page from "./components/Page"
 import OneSignal from 'react-onesignal';
 import Offline from './components/Offline';
 import Otherpage from './components/Otherpage';
+import PWAPrompt from 'react-ios-pwa-prompt'
 
 
 OneSignal.initialize('e5b94a5a-a3b9-4f0b-b5a1-54d44283e640', {
@@ -25,6 +26,7 @@ function App() {
       <Otherpage path="/otherpage" />
       <Offline path="/offline" />
     </Router>
+    <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false} />
     </>
   );
 }
