@@ -21,9 +21,9 @@ function App() {
     </nav>
     <Router>
       <Home path="/" />
-      <Page path="page" />
-      <Otherpage path="otherpage" />
-      <Offline path="offline" />
+      <Page path="/page" />
+      <Otherpage path="/otherpage" />
+      <Offline path="/offline" />
     </Router>
     </>
   );
