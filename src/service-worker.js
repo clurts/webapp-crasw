@@ -45,6 +45,7 @@ registerRoute(
     return true;
   },
   //createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
+  getCacheKeyForURL('offline.html')
 );
 
 
