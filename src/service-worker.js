@@ -73,17 +73,18 @@ self.addEventListener('message', (event) => {
 
 // Any other custom service worker logic can go here.
 
-/* this breaks routing above...
+// cache offline files
 registerRoute(
   new RegExp('/offline/.*'),
   new CacheOnly({
     cacheName: 'offline'
   })
   );
-*/ 
+
   //setDefaultHandler(new NetworkOnly());
   
 
+  /*
 
 registerRoute(
   ({url}) => url.origin === self.location.origin &&
@@ -95,7 +96,6 @@ registerRoute(
 
 
 
-/*
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
