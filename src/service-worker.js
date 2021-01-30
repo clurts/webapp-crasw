@@ -97,11 +97,11 @@ registerRoute(
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
-      return caches.match(getCacheKeyForURL('offline.html'));
+      return caches.match('offline.html');
     break;
 
     case 'image':
-      return caches.match(getCacheKeyForURL('offline_img.jpg'));
+      return caches.match('offline_img.jpg');
     break;
 
     default:
