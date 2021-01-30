@@ -79,7 +79,7 @@ precacheAndRoute([
   {url: '/offline_img.jpg', revision: null}
 ])
 
-  //setDefaultHandler(new NetworkOnly());
+setDefaultHandler(new NetworkOnly());
   
 
   /*
