@@ -11,7 +11,7 @@
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL, matchPrecache } from 'workbox-precaching';
-import { registerRoute } from 'workbox-routing';
+import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
 import { CacheFirst, NetworkOnly } from 'workbox-strategies';
 
 clientsClaim();
