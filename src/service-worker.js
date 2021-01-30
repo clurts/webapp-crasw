@@ -102,8 +102,8 @@ setCatchHandler(({event}) => {
     break;
 
     case 'image':
-      //return caches.match('offline_img.jpg');
-      return matchPrecache('offline_img.jpg');
+      return caches.match('offline_img.jpg');
+      //return matchPrecache('offline_img.jpg');
     break;
 
     default:
