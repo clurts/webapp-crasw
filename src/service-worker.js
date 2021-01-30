@@ -74,13 +74,10 @@ self.addEventListener('message', (event) => {
 // Any other custom service worker logic can go here.
 
 // cache offline files
-registerRoute(
-  // Add in any other file extensions or routing criteria as needed.
-  ({ url }) => url.origin === self.location.origin && url.pathname.startsWith('offline'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
-  new CacheFirst({
-    cacheName: 'offline',
-  })
-);
+precacheAndRoute([
+  {url: '/offline.html', revision: null},
+  {url: '/offline_img.jpg', revision: null}
+])
 
   //setDefaultHandler(new NetworkOnly());
   
