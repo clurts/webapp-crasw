@@ -79,7 +79,7 @@ self.addEventListener('message', (event) => {
 // cache offline files
 precacheAndRoute([
   {url: '/'},
-  {url: '/index.html'},
+  
   {url: '/static/css/.*'},
   {url: '/static/js/.*'},
   {url: '/offline.html'},
