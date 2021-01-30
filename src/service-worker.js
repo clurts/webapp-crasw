@@ -20,12 +20,12 @@ clientsClaim();
 // Their URLs are injected into the manifest variable below.
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
-precacheAndRoute(self.__WB_MANIFEST);
+//precacheAndRoute(self.__WB_MANIFEST);
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
-/*
+
 const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$');
 registerRoute(
   // Return false to exempt requests from being fulfilled by index.html.
@@ -47,15 +47,7 @@ registerRoute(
   },
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
-*/
-precacheAndRoute([
-  {url: '/'},
-  {url: '/index.html'},
-  {url: '/static/css/.*'},
-  {url: '/static/js/.*'},
-  {url: '/offline.html'},
-  {url: '/offline_img.jpg'}
-])
+
 
 // An example runtime caching route for requests that aren't handled by the
 // precache, in this case same-origin .png requests like those from in public/
@@ -83,6 +75,14 @@ self.addEventListener('message', (event) => {
 // Any other custom service worker logic can go here.
 
 // cache offline files
+precacheAndRoute([
+  {url: '/'},
+  {url: '/index.html'},
+  {url: '/static/css/.*'},
+  {url: '/static/js/.*'},
+  {url: '/offline.html'},
+  {url: '/offline_img.jpg'}
+])
 
 
 setDefaultHandler(new StaleWhileRevalidate());
