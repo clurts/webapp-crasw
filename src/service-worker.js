@@ -45,8 +45,7 @@ registerRoute(
   },
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
-//manually inserted
-setDefaultHandler(new NetworkOnly());
+
 
 // An example runtime caching route for requests that aren't handled by the
 // precache, in this case same-origin .png requests like those from in public/
@@ -73,6 +72,8 @@ self.addEventListener('message', (event) => {
 
 // Any other custom service worker logic can go here.
 
+//manually inserted
+setDefaultHandler(new NetworkOnly());
 
 registerRoute(
   ({url}) => url.origin === self.location.origin &&
