@@ -1,12 +1,10 @@
 import logo from '../logo.svg';
 import '../App.css';
-import Demo from "./Demo"
 
 
 const Home = () => {
     return ( 
         <div className="App">
-          <Demo />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
