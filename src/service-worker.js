@@ -75,6 +75,14 @@ self.addEventListener('message', (event) => {
 //manually inserted
 setDefaultHandler(new NetworkOnly());
 
+registerRoute(
+  new RegExp('/offline/.*'),
+  new CacheOnly({
+    cacheName: 'offline'
+  })
+);
+
+
 
 /*
 registerRoute(
