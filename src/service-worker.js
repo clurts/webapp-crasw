@@ -76,7 +76,7 @@ if(self.IndexedDB){
 
 registerRoute(
   ({url}) => url.origin === self.location.origin &&
-             url.pathname.startsWith('/offline/'),
+             url.pathname.startsWith('/offline'),
   new CacheOnly({
     cacheName: 'offline'
   })
