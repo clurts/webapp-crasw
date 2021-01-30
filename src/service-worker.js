@@ -75,6 +75,8 @@ self.addEventListener('message', (event) => {
 //manually inserted
 setDefaultHandler(new NetworkOnly());
 
+
+/*
 registerRoute(
   ({url}) => url.origin === self.location.origin &&
              url.pathname.startsWith('/offline'),
@@ -101,3 +103,5 @@ setCatchHandler(({event}) => {
       return Response.error();
   }
 })
+
+*/
