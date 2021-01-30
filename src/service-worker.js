@@ -84,7 +84,7 @@ registerRoute(
   //setDefaultHandler(new NetworkOnly());
   
 
-/*
+
 registerRoute(
   ({url}) => url.origin === self.location.origin &&
              url.pathname.startsWith('/offline'),
@@ -95,7 +95,7 @@ registerRoute(
 
 
 
-
+/*
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
