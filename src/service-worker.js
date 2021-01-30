@@ -10,9 +10,9 @@
 
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
-import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
+import { precacheAndRoute, createHandlerBoundToURL, matchPrecache } from 'workbox-precaching';
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
-import { StaleWhileRevalidate, CacheOnly, NetworkOnly, CacheFirst } from 'workbox-strategies';
+import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
 
 clientsClaim();
 
@@ -97,11 +97,13 @@ registerRoute(
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
-      return caches.match('offline.html');
+      //return caches.match('offline.html');
+      return matchPrecache('offline.html');
     break;
 
     case 'image':
-      return caches.match('offline_img.jpg');
+      //return caches.match('offline_img.jpg');
+      return matchPrecache('offline_img.jpg');
     break;
 
     default:
