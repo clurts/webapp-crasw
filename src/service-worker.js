@@ -97,8 +97,8 @@ registerRoute(
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
-      //return caches.match('offline.html');
-      return matchPrecache('offline.html'); //offline.html
+      return caches.match('/offline.html');
+      //return matchPrecache('offline.html');
     break;
 
     case 'image':
