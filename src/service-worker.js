@@ -70,9 +70,7 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
-if(self.IndexedDB){
-  console.log('IndexedDB is supported');
-}
+
 
 registerRoute(
   ({url}) => url.origin === self.location.origin &&
@@ -92,7 +90,7 @@ setCatchHandler(({event}) => {
     break;
 
     case 'image':
-      return caches.match(offline_img.jpg);
+      return caches.match('offline_img.jpg');
     break;
 
     default:
