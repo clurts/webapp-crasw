@@ -11,8 +11,8 @@
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL, matchPrecache } from 'workbox-precaching';
-import { registerRoute, NavigationRoute } from 'workbox-routing';
-import { StaleWhileRevalidate, CacheFirst, NetworkOnly } from 'workbox-strategies';
+import { registerRoute } from 'workbox-routing';
+import { CacheFirst, NetworkOnly } from 'workbox-strategies';
 
 clientsClaim();
 
@@ -76,16 +76,31 @@ self.addEventListener('message', (event) => {
 
 // cache offline files
 precacheAndRoute([
-  '/offline.html',
-  '/offline_img.jpg'
+  {url: '/offline.html'},
+  {url: '/offline_img.jpg'}
 ])
 
 
-const htmlHandler = new NetworkOnly()
-const navigationRoute = new NavigationRoute(({event}) => {
-  const request = event.request;
-  return htmlHandler.handle({event, request}).catch((err) => 
-    caches.match('/offline.html', {ignoreSearch: true})
-  );
+setDefaultHandler(new NetworkOnly());
+  
+
+setCatchHandler(({event}) => {
+  switch (event.request.destination) {
+    case 'document':
+      return caches.match('/offline.html');
+      //return matchPrecache('offline.html');
+    break;
+
+    case 'image':
+      return caches.match('offline_img.jpg');
+      //return matchPrecache('offline_img.jpg');
+    break;
+
+    default:
+      // If we don't have a fallback, just return an error response.
+      return Response.error();
+  }
 })
-registerRoute(navigationRoute);
+
+
+
