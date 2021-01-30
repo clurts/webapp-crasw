@@ -72,14 +72,14 @@ self.addEventListener('message', (event) => {
 
 // Any other custom service worker logic can go here.
 
-
+/* this breaks routing above...
 registerRoute(
   new RegExp('/offline/.*'),
   new CacheOnly({
     cacheName: 'offline'
   })
   );
-  
+*/ 
   setDefaultHandler(new NetworkOnly());
   
 
