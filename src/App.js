@@ -3,7 +3,6 @@ import { Link, Router } from '@reach/router'
 import Home from "./components/Home"
 import Page from "./components/Page"
 import OneSignal from 'react-onesignal';
-import Offline from './components/Offline';
 import Otherpage from './components/Otherpage';
 import PWAPrompt from 'react-ios-pwa-prompt'
 
