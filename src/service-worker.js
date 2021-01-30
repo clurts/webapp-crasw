@@ -44,7 +44,7 @@ registerRoute(
 
     return true;
   },
-  createHandlerBoundToURL(process.env.PUBLIC_URL + '/offline.html')
+  createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
 
 
