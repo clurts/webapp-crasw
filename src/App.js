@@ -19,12 +19,12 @@ function App() {
       <Link to="/">Homepage</Link>
       <Link to="/page">subpage</Link>
       <Link to="/otherpage">otherpage</Link>
+      <Link to="/contact">contact</Link>
     </nav>
     <Router>
       <Home path="/" />
       <Page path="/page" />
       <Otherpage path="/otherpage" />
-      <Offline path="/offline" />
     </Router>
     <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false} />
     </>
