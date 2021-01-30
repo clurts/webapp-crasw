@@ -12,7 +12,7 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
-import { StaleWhileRevalidate, CacheOnly, NetworkOnly } from 'workbox-strategies';
+import { StaleWhileRevalidate, CacheOnly, NetworkOnly, CacheFirst } from 'workbox-strategies';
 
 clientsClaim();
 
@@ -75,11 +75,12 @@ self.addEventListener('message', (event) => {
 
 // cache offline files
 registerRoute(
-  new RegExp('/offline/.*'),
-  new CacheOnly({
-    cacheName: 'offline'
+  // Add in any other file extensions or routing criteria as needed.
+  ({ url }) => url.origin === self.location.origin && url.pathname.startsWith('offline'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  new CacheFirst({
+    cacheName: 'offline',
   })
-  );
+);
 
   //setDefaultHandler(new NetworkOnly());
   
