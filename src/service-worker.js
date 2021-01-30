@@ -80,7 +80,7 @@ registerRoute(
   })
   );
 */ 
-  setDefaultHandler(new NetworkOnly());
+  //setDefaultHandler(new NetworkOnly());
   
 
 /*
