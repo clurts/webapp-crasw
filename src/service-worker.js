@@ -98,12 +98,12 @@ setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
       //return caches.match('offline.html');
-      return matchPrecache('/offline.html');
+      return matchPrecache('offline.html'); //offline.html
     break;
 
     case 'image':
       //return caches.match('offline_img.jpg');
-      return matchPrecache('/offline_img.jpg');
+      return matchPrecache('offline_img.jpg');
     break;
 
     default:
