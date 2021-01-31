@@ -21,12 +21,12 @@ function App() {
       <Link to="/otherpage">otherpage</Link>
       <Link to="/contact">contact</Link>
     </nav>
-    <Router>
+    {/*<Router>
       <Home path="/" />
       <Page path="/page" />
       <Otherpage path="/otherpage" />
       <Notfound default />
-    </Router>
+    </Router>*/}
     <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false} />
     </>
   );
