@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, Router } from '@reach/router'
-import Home from "./components/Home"
-import Page from "./components/Page"
+import { Link, } from '@reach/router' //Router 
+//import Home from "./components/Home"
+//import Page from "./components/Page"
 import OneSignal from 'react-onesignal';
-import Otherpage from './components/Otherpage';
+//import Otherpage from './components/Otherpage';
 import PWAPrompt from 'react-ios-pwa-prompt'
-import Notfound from './components/Notfound';
+//import Notfound from './components/Notfound';
 
 
 OneSignal.initialize('e5b94a5a-a3b9-4f0b-b5a1-54d44283e640', {
