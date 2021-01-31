@@ -1,5 +1,5 @@
 
-const Offline = () => {
+const Notfound = () => {
     return (
         <div>
             <h2>Dette er offlinesiden.</h2>
@@ -7,4 +7,4 @@ const Offline = () => {
      );
 }
  
-export default Offline;
+export default Notfound;
