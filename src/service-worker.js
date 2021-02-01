@@ -87,11 +87,11 @@ setDefaultHandler(new NetworkOnly());
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
     case 'document':
-      caches.match('/offline.html')
+      return caches.match('/offline.html')
     break;
 
     case 'image':
-      caches.match('offline_img.jpg')
+      return caches.match('offline_img.jpg')
     break;
 
     default:
