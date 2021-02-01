@@ -80,9 +80,7 @@ precacheAndRoute([
   {url: '/offline_img.jpg'}
 ])
 
-
 setDefaultHandler(new NetworkOnly());
-  
 
 setCatchHandler(({event}) => {
   switch (event.request.destination) {
