@@ -2,7 +2,8 @@ import Localbase from "localbase"
 
 const Testbase = () => {
 
-    
+
+let myDatabase = new Localbase('myDatabase')
 
     const insertIntoDb = () => {
         myDatabase.collection('users').add({
