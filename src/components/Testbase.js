@@ -1,9 +1,11 @@
 import Localbase from "localbase"
 
+
 const Testbase = () => {
 
 
 let myDatabase = new Localbase('myDatabase')
+    //const [users, setUsers] = useState(null);
 
     const insertIntoDb = () => {
         myDatabase.collection('users').add({
@@ -13,14 +15,25 @@ let myDatabase = new Localbase('myDatabase')
           })
     }
 
+    const getfromdb = () => {
+        myDatabase.collection('users').get().then(users => {
+            users.map(user => {
+                 console.log(user.name)
+            })
+            
+        })
+    }
+
     const removeTable = () => {
-        myDatabase.delete()
+        myDatabase.collection('users').delete()
+        //console.log('delete code here')
     }
 
     return ( 
         <>
-            <button onClick={insertIntoDb()}>adduser</button>
-            <button onClick={removeTable()}>delete table</button>
+            <button onClick={insertIntoDb}>adduser</button>
+            <button onClick={getfromdb}>get users</button>
+            <button onClick={removeTable}>delete table</button>
         </>
      );
 }
