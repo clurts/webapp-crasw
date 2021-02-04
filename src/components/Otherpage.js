@@ -10,7 +10,7 @@ const Otherpage = () => {
             headers: {
                 "Content-Type":"application/json",
                 "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4",
-                "Access-Control-Allow-Origin": "https://onesignal.com"
+                "Access-Control-Allow-Origin": "https://onesignal.com/api/v1/notifications"
             },
             body: {
                 "app_id": "e5b94a5a-a3b9-4f0b-b5a1-54d44283e640",
