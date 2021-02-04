@@ -10,15 +10,22 @@ let myDatabase = new Localbase('myDatabase')
     const insertIntoDb = () => {
         myDatabase.collection('users').add({
             id: 2,
-            name: 'Joe',
+            name: 'John',
             age: 58
           })
     }
 
     const getfromdb = () => {
+        const [totalDistance, setTotalDistance] = useState(0)
         myDatabase.collection('users').get().then(users => {
-            users.map(user => {
+           ''
+            users.map((postition, index, array) => {
                  console.log(user.name)
+                 if(index !== array.length-1) {
+                     //Her kan du udregne afstanden mellem postition og index+1
+                    console.log("next name is: ", array[index+1].name)
+                 }
+                 
             })
             
         })
