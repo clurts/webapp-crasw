@@ -10,6 +10,7 @@ const Otherpage = () => {
             headers: {
                 "Content-Type":"application/json",
                 "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4",
+                "mode": "cors",
                 "Access-Control-Allow-Origin": "https://onesignal.com/api/v1/notifications"
             },
             body: {
