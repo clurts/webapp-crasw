@@ -7,9 +7,8 @@ const Otherpage = () => {
     function sendMessage() {
         fetch("https://onesignal.com/api/v1/notifications", {
             method: "POST", 
+            mode: "cors",
             headers: {
-                "Access-Control-Allow-Headers": "*",
-                "Access-Control-Allow-Origin": "*",
                 "Content-Type":"application/json",
                 "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4"
             },
