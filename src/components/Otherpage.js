@@ -9,7 +9,7 @@ const Otherpage = () => {
             method: "POST", 
             headers: {
                 "Content-Type":"application/json",
-                "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4"
+                "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4",
                 "Access-Control-Allow-Origin": "https://onesignal.com"
             },
             body: {
