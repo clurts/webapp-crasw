@@ -9,9 +9,7 @@ const Otherpage = () => {
             method: "POST", 
             headers: {
                 "Content-Type":"application/json",
-                "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4",
-                "mode": "cors",
-                "Access-Control-Allow-Origin": "https://onesignal.com"
+                "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4"
             },
             body: {
                 "app_id": "e5b94a5a-a3b9-4f0b-b5a1-54d44283e640",
