@@ -18,6 +18,7 @@ const Otherpage = () => {
                 "contents": {"en": "This is the english message"}
               }
         })
+        .then(response => console.log(response))
     }
 
 
