@@ -8,6 +8,7 @@ const Otherpage = () => {
         fetch("https://onesignal.com/api/v1/notifications", {
             method: "POST", 
             headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type":"application/json",
                 "Authorization":"Basic NTNhOTgzODktZWJkMS00NjcwLWE5ODAtZmJlNTg3NmM0NTk4"
             },
