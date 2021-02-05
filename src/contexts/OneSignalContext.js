@@ -13,14 +13,14 @@ const OneSignalContextProvider = (props) => {
         if(!OneSignalUserId) {
             OneSignal.isPushNotificationsEnabled(function(isEnabled) {
                 if (isEnabled) {
-                OneSignal.getUserId().then(function (userId) {
-                    console.log("OneSignal User ID:", userId);
-                    setOneSignalUserId(userId);
-                });
-            }
+                    OneSignal.getUserId().then(function (userId) {
+                        console.log("OneSignal User ID:", userId);
+                        setOneSignalUserId(userId);
+                    });
+                }
             })
         }
-    }, []);
+    }, [OneSignalUserId]);
     
     OneSignalUserId && console.log("OneSignal User ID:", OneSignalUserId)
     /*useEffect(() => {
