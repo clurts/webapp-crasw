@@ -50,4 +50,4 @@ const OneSignalContextProvider = (props) => {
     );
 };
 
-export default ContextProvider;
+export default OneSignalContextProvider;
