@@ -10,19 +10,19 @@ const OneSignalContextProvider = (props) => {
     //const [Result, setResult] = useState(null);
 
     useEffect(() => {
-        if (OneSignal !== []) {
-            OneSignal.push(function () {
+        if(!OneSignalUserId) {
+            OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+                if (isEnabled) {
                 OneSignal.getUserId().then(function (userId) {
                     console.log("OneSignal User ID:", userId);
                     setOneSignalUserId(userId);
                 });
-            });
-        } else {
-            console.log("idk");
+            }
+            })
         }
     }, []);
     
-    OneSignalUserId && console.log(OneSignalUserId)
+    OneSignalUserId && console.log("OneSignal User ID:", OneSignalUserId)
     /*useEffect(() => {
         if (OneSignalUserId !== null)
             (async () => {
