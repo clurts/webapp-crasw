@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, createContext } from "react";
 const OneSignal = window.OneSignal;
 
 export const OneSignalContext = createContext();
@@ -6,7 +6,8 @@ export const OneSignalContext = createContext();
 const OneSignalContextProvider = (props) => {
     console.log(OneSignal);
     const [OneSignalUserId, setOneSignalUserId] = useState(null);
-    const [Result, setResult] = useState(null);
+    
+    //const [Result, setResult] = useState(null);
 
     if (OneSignal !== []) {
         OneSignal.push(function () {
@@ -44,7 +45,7 @@ const OneSignalContextProvider = (props) => {
     }, [OneSignalUserId]);*/
 
     return (
-        <OneSignalContext.Provider value={{ OneSignalUserId, Result }}>
+        <OneSignalContext.Provider value={{ OneSignalUserId }}>
             {props.children}
         </OneSignalContext.Provider>
     );
