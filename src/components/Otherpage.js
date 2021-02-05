@@ -15,12 +15,12 @@ const Otherpage = () => {
                 'Access-Control-Allow-Headers': 'SDK-Version',
                 'Access-Control-Allow-Origin': '*'
             },
-            body: {
+            body: JSON.stringify({
                 "app_id": "e5b94a5a-a3b9-4f0b-b5a1-54d44283e640",
                 "include_player_ids": ["2c8eaf24-bdc0-4d95-afaa-7b8a36188f8f"],
                 "headings": {"en": "Heading in english"},
                 "contents": {"en": "This is the english message"}
-              }
+              })
         })
         .then(response => console.log(response))
     }
