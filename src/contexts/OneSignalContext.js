@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+const OneSignal = window.OneSignal;
 
 export const OneSignalContext = createContext();
 
