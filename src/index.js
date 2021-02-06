@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-import OneSignalContextProvider from "./contexts/OneSignalContext";
+//import OneSignalContextProvider from "./contexts/OneSignalContext";
 
 ReactDOM.render(
     <React.StrictMode>
