@@ -8,9 +8,7 @@ import OneSignalContextProvider from "./contexts/OneSignalContext";
 
 ReactDOM.render(
     <React.StrictMode>
-        <OneSignalContextProvider>
             <App />
-        </OneSignalContextProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );

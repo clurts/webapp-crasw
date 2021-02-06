@@ -1,3 +1,5 @@
+import Localbase from 'localbase'
+//const OneSignal = window.OneSignal;
 
 const Otherpage = () => {
 
@@ -5,7 +7,11 @@ const Otherpage = () => {
 
 
     function sendMessage() {
-        fetch("https://onesignal.com/api/v1/notifications", {
+        db.collection('Ids').doc('userId').get()
+        .then(user => {
+            console.log(user.id)
+        })
+        /*fetch("https://onesignal.com/api/v1/notifications", {
             mode: "no-cors",
             method: "POST", 
             headers: {
@@ -19,7 +25,7 @@ const Otherpage = () => {
                 "contents": {"en": "This is the english message"}
               })
         })
-        .then(response => console.log(response))
+        .then(response => console.log(response))*/
     }
 
 
