@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useMemo } from "react";
 import Localbase from 'localbase'
 const OneSignal = window.OneSignal;
 
@@ -7,7 +7,7 @@ export const OneSignalContext = createContext();
 const OneSignalContextProvider = (props) => {
     console.log(OneSignal);
     const [OneSignalUserId, setOneSignalUserId] = useState(null);
-    const ONE_SIGNAL_SDK_DB = new Localbase();
+    const ONE_SIGNAL_SDK_DB = useMemo(() => new Localbase(), []);
     
     //const [Result, setResult] = useState(null);
 
@@ -18,7 +18,7 @@ const OneSignalContextProvider = (props) => {
                 setOneSignalUserId(user.id)
             })
 
-    }, []);
+    }, [ONE_SIGNAL_SDK_DB]);
     
     OneSignalUserId && console.log("OneSignal User ID:", OneSignalUserId)
     /*useEffect(() => {
