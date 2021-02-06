@@ -18,7 +18,7 @@ const OneSignalContextProvider = (props) => {
                 setOneSignalUserId(user.id)
             })
 
-    }, [ONE_SIGNAL_SDK_DB]);
+    }, [db]);
     
     OneSignalUserId && console.log("OneSignal User ID:", OneSignalUserId)
     /*useEffect(() => {
