@@ -3,7 +3,7 @@ import Localbase from 'localbase'
 
 const Otherpage = () => {
 
-
+    const db = useMemo(() => new Localbase('ONE_SIGNAL_SDK_DB'), []);
 
 
     function sendMessage() {
