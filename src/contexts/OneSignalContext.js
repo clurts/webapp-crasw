@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import Localbase from 'localbase'
 const OneSignal = window.OneSignal;
 
 export const OneSignalContext = createContext();
@@ -6,18 +7,17 @@ export const OneSignalContext = createContext();
 const OneSignalContextProvider = (props) => {
     console.log(OneSignal);
     const [OneSignalUserId, setOneSignalUserId] = useState(null);
+    const ONE_SIGNAL_SDK_DB = new Localbase();
     
     //const [Result, setResult] = useState(null);
 
     useEffect(() => {
-        OneSignal.isPushNotificationsEnabled(function(isEnabled) {
-            if (isEnabled) {
-                OneSignal.getUserId().then(function (userId) {
-                    console.log("OneSignal User ID:", userId);
-                    setOneSignalUserId(userId);
-                });
-            }
-        })
+
+        ONE_SIGNAL_SDK_DB.collection('Ids').doc('userId').get()
+            .then(user => {
+                setOneSignalUserId(user.id)
+            })
+
     }, []);
     
     OneSignalUserId && console.log("OneSignal User ID:", OneSignalUserId)
