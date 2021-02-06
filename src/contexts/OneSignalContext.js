@@ -7,13 +7,13 @@ export const OneSignalContext = createContext();
 const OneSignalContextProvider = (props) => {
     console.log(OneSignal);
     const [OneSignalUserId, setOneSignalUserId] = useState(null);
-    const ONE_SIGNAL_SDK_DB = useMemo(() => new Localbase(), []);
+    const db = useMemo(() => new Localbase('ONE_SIGNAL_SDK_DB'), []);
     
     //const [Result, setResult] = useState(null);
 
     useEffect(() => {
 
-        ONE_SIGNAL_SDK_DB.collection('Ids').doc('userId').get()
+        db.collection('Ids').doc('userId').get()
             .then(user => {
                 setOneSignalUserId(user.id)
             })
