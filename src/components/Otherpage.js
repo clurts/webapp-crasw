@@ -11,6 +11,20 @@ const Otherpage = () => {
         db.collection('Ids').doc('userId').get()
         .then(user => {
             console.log(user.id)
+
+            fetch("https://onesignal.com/api/v1/notifications", {
+            method: "POST", 
+            headers: {
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify({
+                "app_id": "e5b94a5a-a3b9-4f0b-b5a1-54d44283e640",
+                "include_player_ids": [user.id],
+                "headings": {"en": "Heading in english"},
+                "contents": {"en": "This is the english message"}
+              })
+        })
+        .then(response => console.log(response))
         })
         /*fetch("https://onesignal.com/api/v1/notifications", {
             mode: "no-cors",
