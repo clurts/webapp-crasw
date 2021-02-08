@@ -18,7 +18,7 @@ const Otherpage = () => {
                 "Content-Type":"application/json",
             },
             body: JSON.stringify({
-                "app_id": "e5b94a5a-a3b9-4f0b-b5a1-54d44283e640",
+                "app_id": process.env.REACT_APP_ONESIGNAL_APP_ID,
                 "include_player_ids": [user.id],
                 "headings": {
                     "en": "Heading in english", 

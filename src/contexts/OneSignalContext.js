@@ -32,7 +32,7 @@ const OneSignalContextProvider = (props) => {
                             "Content-Type": "application/json; charset=utf-8",
                         },
                         body: JSON.stringify({
-                            app_id: "d7e0ffdf-e3cc-418f-b319-8d70e58ccdeb",
+                            app_id: process.env.process.env.REACT_APP_ONESIGNAL_APP_ID,
                             include_player_ids: [`${OneSignalUserId}`],
                             data: { foo: "bar" },
                             contents: { en: "English Message" },
